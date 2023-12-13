@@ -20,6 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta charSet="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
         <link
           href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
           rel="stylesheet"
@@ -57,7 +62,13 @@ export default function RootLayout({
 
         <Script src="js/main.js"></Script>
       </head>
-      <body className={inter.className}>{children}</body>
+      <body
+        data-spy="scroll"
+        data-target=".site-navbar-target"
+        data-offset="300"
+      >
+        {children}
+      </body>
     </html>
   );
 }

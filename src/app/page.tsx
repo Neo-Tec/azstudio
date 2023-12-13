@@ -12,7 +12,7 @@ import { Footer } from "@/components/footer/footer";
 
 export default function Home() {
   return (
-    <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <>
       <Nav />
       <Hero />
       <About />
@@ -22,6 +22,6 @@ export default function Home() {
       <Counter />
       <Hireme />
       <Footer />
-    </body>
+    </>
   );
 }

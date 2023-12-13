@@ -1,4 +1,8 @@
-export function About() {
+import { getAboutMe } from "@/utils/sanity";
+
+export async function About() {
+  const about = await getAboutMe();
+
   return (
     <section
       className="ftco-about img ftco-section ftco-no-pb"
@@ -26,7 +30,7 @@ export function About() {
                 </p>
                 <ul className="about-info mt-4 px-md-0 px-2">
                   <li className="d-flex">
-                    <span>Name:</span> <span>Clark Thompson</span>
+                    <span>Name:</span> <span>{about.name}</span>
                   </li>
                   <li className="d-flex">
                     <span>Date of birth:</span> <span>January 01, 1987</span>
