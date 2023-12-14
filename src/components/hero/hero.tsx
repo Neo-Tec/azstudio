@@ -26,7 +26,7 @@ export function Hero() {
                   </h1>
                   <h2 className="mb-4">A Freelance Video Editor</h2>
                   <p>
-                    <a href="#" className="btn btn-primary py-3 px-4">
+                    <a href="#" className="btn btn-primary py-3 px-4 mx-2">
                       Hire me
                     </a>
                     <a

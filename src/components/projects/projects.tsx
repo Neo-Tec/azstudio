@@ -27,10 +27,10 @@ export async function Projects() {
           <div className="col-md-12 heading-section text-center ftco-animate">
             <h1 className="big big-2">Projects</h1>
             <h2 className="mb-4">My Projects</h2>
-            <p>
+            {/* <p>
               Far far away, behind the word mountains, far from the countries
               Vokalia and Consonantia
-            </p>
+            </p> */}
           </div>
         </div>
         <div className="row">
