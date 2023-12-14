@@ -30,7 +30,7 @@ export function Hero() {
                       Hire me
                     </a>
                     <a
-                      href="#"
+                      href="#projects-section"
                       className="btn btn-white btn-outline-white py-3 px-4"
                     >
                       My works
@@ -65,11 +65,11 @@ export function Hero() {
                     I&apos;m a <span>video editor</span> based in India
                   </h1>
                   <p>
-                    <a href="#" className="btn btn-primary py-3 px-4">
+                    <a href="#" className="btn btn-primary py-3 px-4 mx-2">
                       Hire me
                     </a>
                     <a
-                      href="#"
+                      href="#projects-section"
                       className="btn btn-white btn-outline-white py-3 px-4"
                     >
                       My works
