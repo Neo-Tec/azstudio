@@ -22,7 +22,7 @@ export function Hero() {
                 <div className="text">
                   <span className="subheading">Hello!</span>
                   <h1 className="mb-4 mt-3">
-                    I&apos;m <span>Anjum Zia</span>
+                    I&apos;m <span>asim</span>
                   </h1>
                   <h2 className="mb-4">A Freelance Video Editor</h2>
                   <p>
