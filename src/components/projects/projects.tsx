@@ -1,4 +1,25 @@
-export function Projects() {
+import { client } from "@/utils/sanity";
+
+import { urlFor } from "@/utils/sanity/client";
+import Link from "next/link";
+import { Video } from "./video";
+
+export async function getVideos() {
+  const query = `
+    *[_type == "video"] {
+      thumbnail,
+      title,
+      video_link
+    }
+  `;
+
+  const data = await client.fetch(query);
+  return data;
+}
+
+export async function Projects() {
+  const videos = await getVideos();
+
   return (
     <section className="ftco-section ftco-project" id="projects-section">
       <div className="container">
@@ -13,24 +34,31 @@ export function Projects() {
           </div>
         </div>
         <div className="row">
-          {/* <!-- <a
-          className="glightbox"
-          href="https://www.youtube.com/watch?v=eK0IIyBlYew"
-        > --> */}
-          <div className="col-md-4 w-50">
+          {videos.map((video: any) => (
+            <Video key={video.title} {...video} />
+          ))}
+          {/* <a
+            className="glightbox col-md-6"
+            href="https://www.youtube.com/watch?v=eK0IIyBlYew"
+          >
             <div
               className="project img ftco-animate d-flex justify-content-center align-items-center"
-              style={{ backgroundImage: "url(images/project-4.jpg)" }}
+              style={{
+                backgroundImage: `url(${urlFor(videos[0].thumbnail)
+                  .width(500)
+                  .url()})`,
+              }}
             >
-              {/* <!-- <div className="overlay"></div>
+              <div className="overlay"></div>
               <div className="text text-center p-4">
-                <h3><a href="#">Branding &amp; Illustration Design</a></h3>
+                <h3>
+                  <a href="#">Branding &amp; Illustration Design</a>
+                </h3>
                 <span>Web Design</span>
-              </div> --> */}
+              </div>
             </div>
-          </div>
-          {/* <!-- </a> --> */}
-          <div className="col-md-8">
+          </a>
+          <div className="col-md-6">
             <div
               className="project img ftco-animate d-flex justify-content-center align-items-center"
               style={{ backgroundImage: "url(images/project-5.jpg)" }}
@@ -45,10 +73,10 @@ export function Projects() {
             </div>
           </div>
 
-          <div className="col-md-8">
+          <div className="col-md-6">
             <div
               className="project img ftco-animate d-flex justify-content-center align-items-center"
-              style={{ backgroundImage: "url(images/project-1.jpg)" }}
+              style={{ backgroundImage: "url(images/project-5.jpg)" }}
             >
               <div className="overlay"></div>
               <div className="text text-center p-4">
@@ -58,10 +86,12 @@ export function Projects() {
                 <span>Web Design</span>
               </div>
             </div>
+          </div>
 
+          <div className="col-md-6">
             <div
               className="project img ftco-animate d-flex justify-content-center align-items-center"
-              style={{ backgroundImage: "url(images/project-6.jpg)" }}
+              style={{ backgroundImage: "url(images/project-5.jpg)" }}
             >
               <div className="overlay"></div>
               <div className="text text-center p-4">
@@ -71,39 +101,7 @@ export function Projects() {
                 <span>Web Design</span>
               </div>
             </div>
-          </div>
-          <div className="col-md-4">
-            <div className="row">
-              <div className="col-md-12">
-                <div
-                  className="project img ftco-animate d-flex justify-content-center align-items-center"
-                  style={{ backgroundImage: "url(images/project-2.jpg)" }}
-                >
-                  <div className="overlay"></div>
-                  <div className="text text-center p-4">
-                    <h3>
-                      <a href="#">Branding &amp; Illustration Design</a>
-                    </h3>
-                    <span>Web Design</span>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-12">
-                <div
-                  className="project img ftco-animate d-flex justify-content-center align-items-center"
-                  style={{ backgroundImage: "url(images/project-3.jpg)" }}
-                >
-                  <div className="overlay"></div>
-                  <div className="text text-center p-4">
-                    <h3>
-                      <a href="#">Branding &amp; Illustration Design</a>
-                    </h3>
-                    <span>Web Design</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
