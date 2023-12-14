@@ -10,6 +10,8 @@ import { Counter } from "@/components/counter/counter";
 import { Hireme } from "@/components/hireme/hireme";
 import { Footer } from "@/components/footer/footer";
 
+export const revalidate = 60;
+
 export default function Home() {
   return (
     <>

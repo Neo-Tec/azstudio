@@ -8,7 +8,7 @@ export function Hireme() {
         <div className="row justify-content-center">
           <div className="col-md-7 ftco-animate text-center">
             <h2>
-              I'm <span>Available</span> for freelancing
+              I&apos;m <span>Available</span> for freelancing
             </h2>
             <p>
               A small river named Duden flows by their place and supplies it

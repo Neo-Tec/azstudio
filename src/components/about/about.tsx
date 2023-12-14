@@ -1,7 +1,25 @@
-import { getAboutMe } from "@/utils/sanity";
+// import { getAboutMe } from "@/utils/sanity";
+import { client } from "@/utils/sanity";
+
+export async function getAboutMe() {
+  const query = `
+    *[_type == "aboutMe"][0] {
+        name,
+        date_of_birth,
+        email,
+        phone,
+        address,
+        zip_code,
+      }`;
+
+  const data = await client.fetch(query);
+  return data;
+}
 
 export async function About() {
   const about = await getAboutMe();
+
+  console.log("about", about);
 
   return (
     <section
@@ -33,20 +51,21 @@ export async function About() {
                     <span>Name:</span> <span>{about.name}</span>
                   </li>
                   <li className="d-flex">
-                    <span>Date of birth:</span> <span>January 01, 1987</span>
+                    <span>Date of birth:</span>{" "}
+                    <span>{about.date_of_birth}</span>
                   </li>
                   <li className="d-flex">
                     <span>Address:</span>
-                    <span>San Francisco CA 97987 USA</span>
+                    <span>{about.address}</span>
                   </li>
                   <li className="d-flex">
-                    <span>Zip code:</span> <span>1000</span>
+                    <span>Zip code:</span> <span>{about.zip_code}</span>
                   </li>
                   <li className="d-flex">
-                    <span>Email:</span> <span>clarkthomp@gmail.com</span>
+                    <span>Email:</span> <span>{about.email}</span>
                   </li>
                   <li className="d-flex">
-                    <span>Phone: </span> <span>+1-2234-5678-9-0</span>
+                    <span>Phone: </span> <span>{about.phone}</span>
                   </li>
                 </ul>
               </div>
