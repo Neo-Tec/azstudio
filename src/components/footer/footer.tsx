@@ -1,4 +1,21 @@
-export function Footer() {
+import { client } from "@/utils/sanity";
+
+export async function getSocialLinks() {
+  const query = `
+    *[_type == "socialLinks"][0] {
+        instagram_id,
+        facebook_id,
+        twitter_id,
+        linkedin_id,
+      }`;
+
+  const data = await client.fetch(query);
+  return data;
+}
+
+export async function Footer() {
+  const social = await getSocialLinks();
+
   return (
     <>
       <footer className="ftco-footer ftco-section">
@@ -13,17 +30,17 @@ export function Footer() {
                 </p>
                 <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                   <li className="ftco-animate">
-                    <a href="#">
+                    <a href={social.twitter_id}>
                       <span className="icon-twitter"></span>
                     </a>
                   </li>
                   <li className="ftco-animate">
-                    <a href="#">
+                    <a href={social.facebook_id}>
                       <span className="icon-facebook"></span>
                     </a>
                   </li>
                   <li className="ftco-animate">
-                    <a href="#">
+                    <a href={social.instagram_id}>
                       <span className="icon-instagram"></span>
                     </a>
                   </li>

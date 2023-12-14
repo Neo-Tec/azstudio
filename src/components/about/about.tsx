@@ -19,8 +19,6 @@ export async function getAboutMe() {
 export async function About() {
   const about = await getAboutMe();
 
-  console.log("about", about);
-
   return (
     <section
       className="ftco-about img ftco-section ftco-no-pb"
