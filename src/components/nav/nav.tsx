@@ -32,7 +32,7 @@ export function Nav() {
                 <span>About</span>
               </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a href="#resume-section" className="nav-link">
                 <span>Resume</span>
               </a>
@@ -41,7 +41,7 @@ export function Nav() {
               <a href="#services-section" className="nav-link">
                 <span>Services</span>
               </a>
-            </li>
+            </li> */}
             <li className="nav-item">
               <a href="#skills-section" className="nav-link">
                 <span>Skills</span>

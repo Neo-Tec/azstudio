@@ -5,6 +5,7 @@ export async function getAboutMe() {
   const query = `
     *[_type == "aboutMe"][0] {
         name,
+        description,
         date_of_birth,
         email,
         phone,
@@ -40,10 +41,7 @@ export async function About() {
               <div className="col-md-12 heading-section ftco-animate">
                 <h1 className="big">About</h1>
                 <h2 className="mb-4">About Me</h2>
-                <p>
-                  A small river named Duden flows by their place and supplies it
-                  with the necessary regelialia.
-                </p>
+                <p>{about.description}</p>
                 <ul className="about-info mt-4 px-md-0 px-2">
                   <li className="d-flex">
                     <span>Name:</span> <span>{about.name}</span>
@@ -70,12 +68,12 @@ export async function About() {
             </div>
             <div className="counter-wrap ftco-animate d-flex mt-md-3">
               <div className="text">
-                <p className="mb-4">
+                {/* <p className="mb-4">
                   <span className="number" data-number="120">
                     0
                   </span>
                   <span>Project complete</span>
-                </p>
+                </p> */}
                 <p>
                   <a
                     href="/assets/anjum_zia_cv.pdf"

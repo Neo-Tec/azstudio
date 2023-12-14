@@ -1,4 +1,19 @@
-export function Skills() {
+import { client } from "@/utils/sanity";
+import { Skill } from "./skill";
+
+export async function getSkills() {
+  const query = `
+    *[_type == "skills"][0] {
+        skill
+      }`;
+
+  const data = await client.fetch(query);
+  return data;
+}
+
+export async function Skills() {
+  const skills = await getSkills();
+
   return (
     <section className="ftco-section" id="skills-section">
       <div className="container">
@@ -6,64 +21,16 @@ export function Skills() {
           <div className="col-md-12 heading-section text-center ftco-animate">
             <h1 className="big big-2">Skills</h1>
             <h2 className="mb-4">My Skills</h2>
-            <p>
+            {/* <p>
               Far far away, behind the word mountains, far from the countries
               Vokalia and Consonantia
-            </p>
+            </p> */}
           </div>
         </div>
         <div className="row">
-          <div className="col-md-6 animate-box">
-            <div className="progress-wrap ftco-animate">
-              <h3>Photoshop</h3>
-              <div className="progress">
-                <div
-                  className="progress-bar color-1"
-                  role="progressbar"
-                  aria-valuenow={100}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: "100%" }}
-                >
-                  <span>100%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6 animate-box">
-            <div className="progress-wrap ftco-animate">
-              <h3>Premiere Pro</h3>
-              <div className="progress">
-                <div
-                  className="progress-bar color-2"
-                  role="progressbar"
-                  aria-valuenow={95}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: "95%" }}
-                >
-                  <span>95%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6 animate-box">
-            <div className="progress-wrap ftco-animate">
-              <h3>After Effects</h3>
-              <div className="progress">
-                <div
-                  className="progress-bar color-3"
-                  role="progressbar"
-                  aria-valuenow={90}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: "90%" }}
-                >
-                  <span>90%</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          {skills.skill.map((skill: any) => (
+            <Skill key={skill.skill_name} {...skill} />
+          ))}
 
           {/* <!-- <div className="watch-video d-flex align-items-center position-relative">
           <i className="bi bi-play-circle"></i>
