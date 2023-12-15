@@ -9,6 +9,7 @@ import { Projects } from "@/components/projects/projects";
 import { Counter } from "@/components/counter/counter";
 import { Hireme } from "@/components/hireme/hireme";
 import { Footer } from "@/components/footer/footer";
+import { HireMe2 } from "@/components/hireme2/hireme2";
 
 export const revalidate = 60;
 
@@ -24,6 +25,8 @@ export default function Home() {
       {/* <Counter /> */}
       <Hireme />
       <Footer />
+
+      <HireMe2 />
     </>
   );
 }
