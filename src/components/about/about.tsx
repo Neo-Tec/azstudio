@@ -31,8 +31,13 @@ export async function About() {
             <div className="img-about img d-flex align-items-stretch">
               <div className="overlay"></div>
               <div
-                className="img d-flex align-self-stretch align-items-center"
-                style={{ backgroundImage: "url(images/bg_1.png)" }}
+                className="img d-flex align-self-stretch align-items-center about-image"
+                style={{
+                  backgroundImage: "url(images/about1.jpg)",
+                  borderRadius: "10px",
+                  marginRight: "50px",
+                  boxShadow: "30px 30px rgba(254,229,181,8%)",
+                }}
               ></div>
             </div>
           </div>
