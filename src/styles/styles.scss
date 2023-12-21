@@ -4,10 +4,10 @@
 $font-primary: "Poppins", Arial, sans-serif;
 
 $white: #fff;
-$black: #000000;
+$black: #111;
 $darken: #232931;
 
-$primary: #ffbd39;
+$primary: #deee4f;
 $secondary: #a0f669;
 
 @mixin border-radius($radius) {
@@ -1977,4 +1977,9 @@ textarea.form-control {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px;
   }
+}
+
+.about-image:hover {
+  filter: grayscale(0%) sepia(40%) blur(0) brightness(95%) hue-rotate(0)
+    saturate(158%) opacity(100%) contrast(100%) invert(0%);
 }
