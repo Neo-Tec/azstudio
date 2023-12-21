@@ -42,7 +42,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="slider-item">
+        {/* <div className="slider-item">
           <div className="overlay"></div>
           <div className="container">
             <div
@@ -79,7 +79,7 @@ export function Hero() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
