@@ -12,7 +12,6 @@ on:
 jobs:
   print-tag:
     runs-on: ubuntu-latest
-    if: ${{ inputs.print_tags }}
     steps:
       - name: Set AWS Access Keys for passed environment
         run: |
