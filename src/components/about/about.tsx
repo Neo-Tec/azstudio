@@ -47,7 +47,7 @@ export async function About() {
                 <h1 className="big">About</h1>
                 <h2 className="mb-4">About Me</h2>
                 <p>{about.description}</p>
-                <ul className="about-info mt-4 px-md-0 px-2">
+                {/* <ul className="about-info mt-4 px-md-0 px-2">
                   <li className="d-flex">
                     <span>Name:</span> <span>{about.name}</span>
                   </li>
@@ -68,7 +68,7 @@ export async function About() {
                   <li className="d-flex">
                     <span>Phone: </span> <span>{about.phone}</span>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </div>
             <div className="counter-wrap ftco-animate d-flex mt-md-3">
