@@ -19,6 +19,7 @@ jobs:
               export AWS_ACCESS_KEY_ID=stg
           elif [ "${{ inputs.environment }}" == "prd" ]; then 
               export AWS_ACCESS_KEY_ID=prd
+          fi
 
       - name: Print ENV
         run: echo $AWS_ACCESS_KEY_ID
