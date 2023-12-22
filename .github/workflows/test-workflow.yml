@@ -1,31 +1,25 @@
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: "Log level"
-        required: true
-        default: "warning"
-        type: choice
-        options:
-          - info
-          - warning
-          - debug
-      print_tags:
-        description: "True to print to STDOUT"
-        required: true
-        type: boolean
-      tags:
-        description: "Test scenario tags"
-        required: true
-        type: string
       environment:
-        description: "Environment to run tests against"
-        type: environment
-        required: false
+        description: "Environment to deploy to"
+        required: true
+        type: choice
+        default: "stg"
+        options:
+          - stg
+          - prd
 jobs:
   print-tag:
     runs-on: ubuntu-latest
     if: ${{ inputs.print_tags }}
     steps:
-      - name: Print the input tag to STDOUT
-        run: npm ${{ inputs.tags }}
+      - name: Set AWS Access Keys for passed environment
+        run: |
+          if [ "${{ inputs.environment }}" == "stg" ]; then
+              export AWS_ACCESS_KEY_ID=stg
+          elif [ "${{ inputs.environment }}" == "prd" ]; then 
+              export AWS_ACCESS_KEY_ID=prd
+
+      - name: Print ENV
+        run: echo $AWS_ACCESS_KEY_ID
