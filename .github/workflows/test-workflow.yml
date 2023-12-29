@@ -16,9 +16,9 @@ jobs:
       - name: Set AWS Access Keys for passed environment
         run: |
           if [ "${{ inputs.environment }}" == "stg" ]; then
-              export AWS_ACCESS_KEY_ID=stg
+              echo "AWS_ACCESS_KEY_ID=stg" >> $GITHUB_ENV
           elif [ "${{ inputs.environment }}" == "prd" ]; then 
-              export AWS_ACCESS_KEY_ID=prd
+              echo "AWS_ACCESS_KEY_ID=prd" >> $GITHUB_ENV
           fi
 
       - name: Print ENV
