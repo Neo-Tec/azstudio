@@ -1,6 +1,35 @@
 export function Hero() {
   return (
     <section id="home-section" className="hero">
+      <style>
+        {`
+          @keyframes slideInFromRight {
+            0% {
+              transform: translateX(-100%);
+              opacity: 0;
+            }
+            100% {
+              transform: translateX(0);
+              opacity: 1;
+            }
+          }
+
+          @media (min-width: 768px) { /* Adjust the breakpoint as needed */
+            .animate-from-right {
+              animation: slideInFromRight 1s ease-out forwards;
+              height: 1000px;
+              width: 1000px;
+              border-radius: 100%;
+              background-color: #132023;
+              position: absolute;
+              left: -15%;
+              top: -30%;
+              /* z-index: -10; */
+            }
+          }
+        `}
+      </style>
+      <div className="animate-from-right"></div>
       <div className="home-slider owl-carousel">
         <div className="slider-item">
           <div className="overlay"></div>
